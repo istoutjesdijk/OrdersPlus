@@ -2,7 +2,11 @@
 <table cellspacing="0" class="qty-table">
     <tr>
         <td><?php echo Mage::helper('sales')->__('Ordered') ?></td>
-        <td><strong><?php echo $_item->getQtyOrdered()*1 ?></strong></td>
+		<?php if ($_item->getQtyOrdered()*1 > 1): ?>
+            <td style="background:#ff8484!important;"><strong><?php echo $_item->getQtyOrdered()*1 ?></strong></td>
+		<?php else: ?>
+		    <td><strong><?php echo $_item->getQtyOrdered()*1 ?></strong></td>
+		<?php endif; ?>
     </tr>
     <?php if ((float) $_item->getQtyInvoiced()): ?>
     <tr>
